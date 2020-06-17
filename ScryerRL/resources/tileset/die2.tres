@@ -1,0 +1,10 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=2]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/diceWhite.png-111fd576451253112fb64a310f10b696.stex"
+
+[resource]
+flags = 4
+atlas = SubResource( 1 )
+region = Rect2( 128, 0, 64, 64 )
