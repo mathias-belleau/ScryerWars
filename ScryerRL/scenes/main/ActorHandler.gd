@@ -2,6 +2,8 @@ extends Node2D
 
 var _actor_list: Array
 
+signal ai_turn_start
+
 func _ready():
 	randomize()
 	pass # Replace with function body.
@@ -11,8 +13,13 @@ func do_turns_for_actors(faction: int) -> void:
 		if actor.faction == faction:
 			print("it's my turn! " + actor.myName)
 			print("I work for " + str(actor.faction))
-
-func create_actor_sprite(actor: PackedScene, groupName: String, x: int, y: int, faction) -> void:
+			emit_signal("ai_turn_start", actor)
+			
+func do_actor_turn(actor) -> void:
+	actor.start_turn()
+	
+	
+func create_actor_sprite(actor, groupName: String, x: int, y: int, faction) -> void:
 	var new_sprite := actor.instance() as Actor
 	new_sprite.position = ConvertCoord.index_to_vector(x, y)
 	new_sprite.z_index = 1

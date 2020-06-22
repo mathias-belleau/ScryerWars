@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/main/Stamina.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/main/BattleBoard.gd" type="Script" id=2]
 [ext_resource path="res://scenes/main/AIHandler.gd" type="Script" id=3]
 [ext_resource path="res://scenes/main/DungeonBoard.gd" type="Script" id=4]
 [ext_resource path="res://scenes/main/ActorHandler.gd" type="Script" id=5]
+[ext_resource path="res://scenes/main/MainScene.gd" type="Script" id=6]
+[ext_resource path="res://scenes/main/PathFinder.gd" type="Script" id=7]
 
 [node name="MainScene" type="Node2D"]
+script = ExtResource( 6 )
 
 [node name="BattleBoard" type="Node2D" parent="."]
 script = ExtResource( 2 )
@@ -21,6 +24,10 @@ script = ExtResource( 4 )
 
 [node name="ActorHandler" type="Node2D" parent="."]
 script = ExtResource( 5 )
+
+[node name="PathFinder" type="Node2D" parent="."]
+script = ExtResource( 7 )
 [connection signal="create_actor" from="BattleBoard" to="ActorHandler" method="create_actor_sprite"]
 [connection signal="create_tile" from="BattleBoard" to="DungeonBoard" method="_on_BattleBoard_create_tile"]
 [connection signal="declare_phase" from="BattleBoard" to="ActorHandler" method="do_turns_for_actors"]
+[connection signal="ai_turn_start" from="ActorHandler" to="AIHandler" method="do_turn"]

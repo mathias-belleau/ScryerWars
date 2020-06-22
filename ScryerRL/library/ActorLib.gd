@@ -18,9 +18,12 @@ func _init_actor_lib() -> void:
 		if dir.current_is_dir():
 			pass
 		else:
-			actor_lib[file_name.get_basename()] = load(dirPath+"/"+file_name)
+			print(dirPath+file_name)
+			actor_lib[file_name.get_basename()] = load(dirPath+file_name) as PackedScene
 		file_name = dir.get_next()
 	print(actor_lib.keys())
+	print("actors")
+	print(actor_lib.values())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

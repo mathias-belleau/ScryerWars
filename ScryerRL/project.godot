@@ -14,20 +14,26 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/main/Actor.gd"
 }, {
-"base": "Resource",
+"base": "Node",
 "class": "Skill_Skill",
 "language": "GDScript",
-"path": "res://library/skill/skill.gd"
+"path": "res://scenes/sprites/skill/skill.gd"
 }, {
 "base": "Sprite",
 "class": "Terrain",
 "language": "GDScript",
 "path": "res://scenes/Terrain.gd"
+}, {
+"base": "Node2D",
+"class": "die",
+"language": "GDScript",
+"path": "res://scenes/sprites/actor/Die.gd"
 } ]
 _global_script_class_icons={
 "Actor": "",
 "Skill_Skill": "",
-"Terrain": ""
+"Terrain": "",
+"die": ""
 }
 
 [application]

@@ -30,6 +30,11 @@ func _init_create_dungeon() -> void:
 	pass
 
 func _init_create_actors() -> void:
+	print("actor lib")
+	print(ActorLib.actor_lib.keys())
+	var test = ActorLib.actor_lib["Actor"]
+	print(test)
+	print("ahh")
 	emit_signal("create_actor" ,ActorLib.actor_lib["Actor"], GroupName.ACTOR, 3,4, GroupName.FACTION.ALLY)	
 	emit_signal("create_actor" ,ActorLib.actor_lib["Actor"], GroupName.ACTOR, 3,5, GroupName.FACTION.ENEMY)	
 
